@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Use
+Framwork : 
+    Next.js 13
+Library :
+    wagmi - blockChain 노드 및 지갑과 통신하기 위한 Hook 라이브러리
+
+
 
 ## Getting Started
 
