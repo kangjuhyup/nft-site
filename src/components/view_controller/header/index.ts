@@ -1,8 +1,8 @@
 
 import { InjectedConnector } from "@wagmi/core";
-import { useAccount, useConnect, useDisconnect, WagmiConfig } from "wagmi";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
 
-const HeaderViewController = () => {
+const HeaderController = () => {
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
         connector : new InjectedConnector()
@@ -17,4 +17,4 @@ const HeaderViewController = () => {
     }
 }
 
-export default HeaderViewController;
+export default HeaderController;

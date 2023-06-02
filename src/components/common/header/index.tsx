@@ -1,23 +1,27 @@
 'use client'
 
-import { useEffect } from "react";
-import HeaderViewController from "@/components/view_controller/header";
+import HeaderController from "@/components/view_controller/header";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+    // const [hasMounted, setHasMounted] = useState(false);
+
+    // useEffect(() => {
+    //     setHasMounted(true);
+    // }, [])
+
+    // if (!hasMounted) return null;
     
     const { 
         isConnected,
         address,
         clickConnectWallet,
         clickDisConnectWallet 
-    } = HeaderViewController();
+    } = HeaderController();
 
-    useEffect(() => {
-        console.log('loadHeader')
-    },[]);
 
     return (
-
+        
         <div>
             <h1>RIVER KANG NFT-SITE</h1>
             {isConnected ?
