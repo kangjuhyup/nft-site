@@ -1,14 +1,36 @@
 'use client';
 
-import InputFieldController from "@/components/view_controller/inputField";
+import styled from 'styled-components';
+import InputFieldController, { INPUT_FEILD_TYPE } from "@/components/view_controller/inputField";
 
-const InputField = () => {
+const Input = styled.input`
+padding: 6px 12px;
+border-radius: 8px;
+font-size: 1rem;
+line-height: 1.5;
+border: 1px solid lightgray;
+color: black;
+background: white;
+`
 
-    const { change } = InputFieldController(); 
+
+export interface InputFieldProps {
+    placeHolder : string,
+    type : INPUT_FEILD_TYPE
+}
+
+const InputField = (props : InputFieldProps) => {
+
+    const { change, finish } = InputFieldController(props.type); 
 
     return (
         <div>
-            <input type="text" onChange={(e) => change(e.target.value)}></input>
+            <Input 
+                type="text" 
+                placeholder={props.placeHolder} 
+                onChange={(e) => change(e.target.value)} 
+                onBlur={() => finish()}
+            />
         </div>
     )
 }
