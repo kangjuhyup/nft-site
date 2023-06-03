@@ -1,12 +1,11 @@
 
-import Header from "@/components/common/header"
 import InputField from "@/components/common/inputField"
 import Wallet from "@/components/common/wallet"
 import Button from "@/components/common/transactionButton"
 
 export default function Mint(){
     return (
-        <><Header />
+        <>
         <Wallet></Wallet>
         <div>
             <p>MINT</p>
