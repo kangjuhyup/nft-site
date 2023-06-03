@@ -1,22 +1,26 @@
 
-import { useEffect } from "react";
-import { usePrepareContractWrite, usePrepareSendTransaction, useSendTransaction } from "wagmi";
+import { useInputFeild } from "@/store/mint";
+import { useContractWrite, usePrepareContractWrite, usePrepareSendTransaction, useSendTransaction } from "wagmi";
 
 const TransactionButtonController = () => {
     const abi = require('/public/abi/nft_deployer.json')
+    const { name, symbol, baseUrl } = useInputFeild();
     const { config, error } = usePrepareContractWrite({
-        address : process.env.DEPLOYER_ADDRESS,
+        // address : process.env.DEPLOYER_ADDRESS ?? '0xabc',
         abi : abi,
         functionName : 'DeployNFT'
     })
 
-    useEffect(() => {
-        console.log('request : ' ,request)
-    },[request])
+    const { data, isLoading, isSuccess, write } = useContractWrite(config)
 
-    const { sendTransaction } = useSendTransaction(request)
+    // const sendTransaction = () => {
+    //     write({
+    //         args : [name,symbol,baseUrl]
+    //     })
+    // }
+
     return {
-        send : sendTransaction,
+        send : write,
         error : error
     }
 }
