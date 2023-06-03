@@ -1,7 +1,7 @@
 'use client';
 
 import styled from "styled-components"
-import wallet from "public/wallet.svg"
+import Image from "next/image";
 import WalletController from "@/components/view_controller/wallet";
 
 const WalletButton = styled.button`
@@ -16,7 +16,7 @@ const WalletButton = styled.button`
     padding-right: 1rem;
     height: 2.25rem;
     font-size: 1rem;
-    background: #228be6;
+    background: #ffffff;
     &:hover {
     background: #339af0;
     }
@@ -44,7 +44,7 @@ const Wallet = () => {
         <p>Connected</p>
         :
         <WalletButton onClick={()=>clickConnectWallet()}>
-        <img src={wallet} alt="Wallet" />
+        <Image src="/wallet.svg" alt="Wallet" width={150} height={150} />
         </WalletButton>
         }
 
