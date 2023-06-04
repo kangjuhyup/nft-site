@@ -2,22 +2,14 @@ import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 import Wagmi from "@/components/common/wagmi";
 
+import styles from "./styles.module.css";
 
-
-const rootStyles = {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-};
 
 const RootProvider = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div style={{ height: '100vh', margin: 0, backgroundColor: 'black' }}>
+        <div>
             <Header />
-            <div style={rootStyles}>
+            <div className={styles.content}>
                 <Wagmi>
                     {children}
                 </Wagmi>

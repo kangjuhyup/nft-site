@@ -1,6 +1,6 @@
 'use client';
 
-import HeaderController from "@/components/view_controller/header";
+import HeaderController from "@/components/controller/header";
 import MenuButton from "./menu/button";
 import Drawer from "./menu/drawer";
 

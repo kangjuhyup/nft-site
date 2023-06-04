@@ -1,6 +1,6 @@
 'use client';
 
-import InputFieldController, { INPUT_FEILD_TYPE } from '@/components/view_controller/inputField';
+import InputFieldController, { INPUT_FEILD_TYPE } from '@/components/controller/inputField';
 import styled from 'styled-components';
 
 const Input = styled.input`

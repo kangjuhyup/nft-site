@@ -1,7 +1,8 @@
 'use client';
 
-import TransactionButtonController from '@/components/view_controller/transactionButton';
+import TransactionButtonController from '@/components/controller/transactionButton';
 import styled from 'styled-components';
+import Modal from '../modal';
 
 const TransactionButton = styled.button`
   background-color: #3498db;
@@ -18,11 +19,21 @@ const TransactionButton = styled.button`
 `;
 
 function Button() {
-  const { send } = TransactionButtonController()
+  const { send , isLoading, isSuccess, txData } = TransactionButtonController()
   return (
-    <TransactionButton onClick={() => send()}>
-      Send Transaction
-    </TransactionButton>
+    <div>
+    {
+      !isLoading ?
+       <TransactionButton onClick={() => send()}>
+        Send Transaction
+      </TransactionButton>
+      :
+        <p>
+          Transaction Pending
+        </p>
+    }
+    {isSuccess && <Modal message={JSON.stringify(txData)}/>}
+   </div>
   );
 }
 

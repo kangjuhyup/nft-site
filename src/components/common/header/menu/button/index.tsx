@@ -1,8 +1,3 @@
-'use client'
-
-import HeaderController from "@/components/view_controller/header";
-
-
 
 const menuButtonStyles = {
     position: 'absolute',

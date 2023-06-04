@@ -1,11 +1,12 @@
 
 import { useInputFeild } from "@/store/mint";
-import { useContractWrite, usePrepareContractWrite, usePrepareSendTransaction, useSendTransaction } from "wagmi";
+import { useEffect } from "react";
+import { useContractWrite } from "wagmi";
 
 const TransactionButtonController = () => {
     const abi = require('/public/abi/nft_deployer.json');
-    console.log(abi);
     const { name, symbol, baseUrl } = useInputFeild();
+
 
     const { data, isLoading, isSuccess, write } = useContractWrite({
         address: '0xC62230B9F4BDB6286f86f5bCeEe15F715167ECE0',
@@ -13,7 +14,17 @@ const TransactionButtonController = () => {
         functionName: 'DeployNFT',
       })
      
+
+
+    useEffect(() => {
+       if(isSuccess) {
+        alert('is Success')
+       }
+    },[isSuccess])
     
+    useEffect(() => {
+        console.log(data);
+    },[data])
 
     const sendTransaction = async () => {
         if(!name) throw Error('invaild name')
@@ -25,6 +36,9 @@ const TransactionButtonController = () => {
 
     return {
         send : sendTransaction,
+        isLoading : isLoading,
+        isSuccess : isSuccess,
+        txData : data
     }
 }
 

@@ -25,3 +25,40 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.div1 {
+  background-color: #4f7da1;
+}
+
+.div2 {
+  background-color: #86bb8a;
+}
+
+.div3 {
+  background-color: #f6d365;
+}
+
+.div4 {
+  background-color: #f26419;
+}
+
+.div5 {
+  background-color: #ebebeb;
+}
+
+.heading {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.link {
+  color: blue;
+}

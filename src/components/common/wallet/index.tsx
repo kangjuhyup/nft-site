@@ -2,7 +2,8 @@
 
 import styled from "styled-components"
 import Image from "next/image";
-import WalletController from "@/components/view_controller/wallet";
+import WalletController from "@/components/controller/wallet";
+import { useEffect } from "react";
 
 const WalletButton = styled.button`
     display: inline-flex;
@@ -38,13 +39,20 @@ const Wallet = () => {
         clickDisConnectWallet 
     } = WalletController();
 
+    useEffect(() => {
+
+    },[]);
+
     return (
         <>
         {isConnected ?
-        <p>Connected</p>
+        <div>
+        <p>Connected : {address}</p>
+        <button onClick={() => clickDisConnectWallet()}>Disconnect</button>
+        </div>
         :
         <WalletButton onClick={()=>clickConnectWallet()}>
-        <Image src="/wallet.svg" alt="Wallet" width={150} height={150} />
+            <Image src="/wallet.svg" alt="Wallet" width={150} height={150} />
         </WalletButton>
         }
 
