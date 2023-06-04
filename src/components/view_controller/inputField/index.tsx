@@ -1,5 +1,4 @@
 import { useInputFeild } from "@/store/mint";
-import { data } from "autoprefixer";
 import { useState } from "react";
 
 const INPUT_FEILD_TYPE = {
@@ -24,7 +23,7 @@ const InputFieldController = (props:INPUT_FEILD_TYPE) => {
     }
 
     const editFinish = () => {
-        console.log('editFinish')
+        console.log('editFinish : ' , fieldData)
         if(!fieldData) return;
         switch(props) {
             case INPUT_FEILD_TYPE.NAME : 

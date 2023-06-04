@@ -1,10 +1,17 @@
+import { InjectedConnector } from "@wagmi/core";
 import { createPublicClient, http } from "viem";
-import { createConfig, mainnet } from "wagmi";
+import { configureChains, createConfig, mainnet } from "wagmi";
+import { publicProvider } from 'wagmi/providers/public'
+import { karam } from "./chain";
+
+
+const { chains, publicClient } = configureChains(
+  [karam],
+  [publicProvider()]
+)
 
 export const wagmi_config = createConfig({
     autoConnect : true,
-    publicClient : createPublicClient({
-      chain : mainnet,
-      transport : http()
-    })
+    connectors : [new InjectedConnector({chains})],
+    publicClient
   })

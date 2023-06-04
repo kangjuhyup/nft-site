@@ -18,7 +18,7 @@ const TransactionButton = styled.button`
 `;
 
 function Button() {
-  const { send, error } = TransactionButtonController()
+  const { send } = TransactionButtonController()
   return (
     <TransactionButton onClick={() => send()}>
       Send Transaction

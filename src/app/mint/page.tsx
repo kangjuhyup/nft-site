@@ -1,3 +1,4 @@
+'use client';
 
 import InputField from "@/components/common/inputField"
 import Wallet from "@/components/common/wallet"
@@ -13,6 +14,7 @@ export default function Mint(){
             <InputField placeHolder="Symbol" type="symbol"/>
             <InputField placeHolder="Repisotory Base Url" type="baseUrl"/>
             <Button/>
-        </div></>
+        </div>
+        </>
       )
     }

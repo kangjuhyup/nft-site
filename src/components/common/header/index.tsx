@@ -1,4 +1,8 @@
+'use client';
+
+import HeaderController from "@/components/view_controller/header";
 import MenuButton from "./menu/button";
+import Drawer from "./menu/drawer";
 
 const headerStyles = {
     backgroundColor: '#333',
@@ -16,11 +20,12 @@ const headerStyles = {
 
 
 const Header = () => {
-
+    const { toggle, isOpend} = HeaderController();
     return (
         <div style={headerStyles}>
             <h1 style={titleStyles}>RIVER KANG NFT-SITE</h1>
-            <MenuButton/>
+            <MenuButton clickEvent={toggle}/>
+            <Drawer isOpend={isOpend} clickEvent={toggle}/>
         </div>
     )
 }
