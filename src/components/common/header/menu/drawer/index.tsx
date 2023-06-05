@@ -28,8 +28,8 @@ const Drawer = ( props : { isOpend : boolean, clickEvent : () => void }) => {
       <div style={drawerStyles}>
         <button style={buttonStyles} onClick={props.clickEvent}>X</button>
         <p style={linkStyles} ><Link href={{pathname : '/'}}>Home</Link></p>
-        <p style={linkStyles}><Link href={{pathname: '/mint'}}>NFT Mint</Link></p>
-        <p style={linkStyles}>ERC20 Mint</p>
+        <p style={linkStyles}><Link href={{pathname: '/mint/nft'}}>NFT Mint</Link></p>
+        <p style={linkStyles}><Link href={{pathname: '/mint/erc20'}}>ERC20 Mint</Link></p>
         <p style={linkStyles}>Bridge</p>
         <p style={linkStyles}>Swap</p>
         <p style={linkStyles}>Market Place</p>

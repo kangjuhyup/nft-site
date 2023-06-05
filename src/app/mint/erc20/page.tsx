@@ -1,9 +1,8 @@
 'use client';
 
-import InputField from "@/components/common/inputField"
 import Wallet from "@/components/common/wallet"
-import Button from "@/components/common/transactionButton"
-import WalletController from "@/components/controller/wallet";
+import WalletController from "@/components/common/wallet/controller";
+import MintERC20Body from "@/components/mint/erc20/body";
 
 export default function Mint() {
   const {
@@ -17,13 +16,7 @@ export default function Mint() {
         <div>
           {
             isConnected ?
-              <div style={{position:"relative", display:"flex", flexDirection:"column"}}>
-                <p>MINT</p>
-                <InputField placeHolder="Name" type="name" />
-                <InputField placeHolder="Symbol" type="symbol" />
-                <InputField placeHolder="Repisotory Base Url" type="baseUrl" />
-                <Button />
-              </div>
+              <MintERC20Body/>
               :
               <div>
                 <p>You must connect your wallet to use it.</p>

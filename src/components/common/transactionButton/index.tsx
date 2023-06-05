@@ -1,6 +1,7 @@
 'use client';
 
-import TransactionButtonController from '@/components/controller/transactionButton';
+import TransactionButtonController, { TRANSACTION_TYPE } from '@/components/controller/transactionButton';
+import { useNFTHooks } from '@/hooks/transaction/nft';
 import styled from 'styled-components';
 import Modal from '../modal';
 
@@ -18,13 +19,20 @@ const TransactionButton = styled.button`
   }
 `;
 
-function Button() {
-  const { send , isLoading, isSuccess, txData } = TransactionButtonController()
+
+
+function Button(props : {
+  type : TRANSACTION_TYPE,
+  param : {}
+}) {
+  const useNFT = useNFTHooks();
+  const { send , isLoading, isSuccess, txData } = TransactionButtonController(props.type,useNFT);
+
   return (
     <div>
     {
       !isLoading ?
-       <TransactionButton onClick={() => send()}>
+       <TransactionButton onClick={() => send(props.param)}>
         Send Transaction
       </TransactionButton>
       :
@@ -32,7 +40,7 @@ function Button() {
           Transaction Pending
         </p>
     }
-    {isSuccess && <Modal message={JSON.stringify(txData)}/>}
+    {isSuccess && <Modal isOpend={true} message={JSON.stringify(txData)}/>}
    </div>
   );
 }

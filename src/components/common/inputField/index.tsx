@@ -1,6 +1,5 @@
 'use client';
 
-import InputFieldController, { INPUT_FEILD_TYPE } from '@/components/controller/inputField';
 import styled from 'styled-components';
 
 const Input = styled.input`
@@ -12,24 +11,31 @@ border: 1px solid lightgray;
 color: black;
 background: white;
 `
+const INPUT_FEILD_TYPE = {
+    NAME : 'name',
+    SYMBOL : 'symbol',
+    BASE_URL : 'baseUrl',
+    TOTAL_SUPPLY : 'totalSupply'
+} as const;
+
+export type INPUT_FEILD_TYPE = typeof INPUT_FEILD_TYPE[keyof typeof INPUT_FEILD_TYPE];
 
 
 export interface InputFieldProps {
     placeHolder : string,
-    type : INPUT_FEILD_TYPE
+    type : INPUT_FEILD_TYPE,
+    handle : any
 }
 
 const InputField = (props : InputFieldProps) => {
-
-    const { change, finish } = InputFieldController(props.type); 
+    const { placeHolder ,type, handle } = props;
 
     return (
         <div>
             <Input 
                 type="text" 
-                placeholder={props.placeHolder} 
-                onChange={(e) => change(e.target.value)} 
-                onBlur={() => finish()}
+                placeholder={placeHolder} 
+                onChange={(e) => handle(type,e.target.value)} 
             />
         </div>
     )

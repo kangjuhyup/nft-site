@@ -2,8 +2,8 @@
 
 import styled from "styled-components"
 import Image from "next/image";
-import WalletController from "@/components/controller/wallet";
 import { useEffect } from "react";
+import WalletController from "./controller";
 
 const WalletButton = styled.button`
     display: inline-flex;

@@ -1,11 +1,18 @@
 
 ## Use
-Framwork : 
-    Next.js 13
-Library :
-    wagmi - blockChain 노드 및 지갑과 통신하기 위한 Hook 라이브러리
+Framwork : <br>
+`Next.js 13` <br>
+Library :<br>
+    `wagmi` - blockChain 노드 및 지갑과 통신하기 위한 Hook 라이브러리<br>
+    `zustand` - 상태관리 라이브러리
 
+## 구조
+MVVM 패턴을 지향한다.<br>
 
+`View ( Page, Component )` : 화면. 뷰모델의 notification 으로 갱신 <br>
+`View Controller` : 화면 로직처리. <br>
+`ViewModal ( Hooks )` : 비즈니스 로직처리. 및 모델 변경<br>
+`Model ( Store ) ` : 데이터 저장소.
 
 ## Getting Started
 
@@ -19,11 +26,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
