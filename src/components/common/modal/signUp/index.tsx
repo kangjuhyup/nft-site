@@ -1,14 +1,20 @@
 
 'use client';
 
-import ModalController from "@/components/controller/modal";
+import useAuth from "@/hooks/api";
+import ModalController from "../controller";
+import SignUpContrller from "./controller";
 
 
-const Modal = (props: { isOpend : boolean, message : string }) => {
+
+
+const ModalSignUp = (props: { isOpend : boolean, address : string, policy : string }) => {
     
     const { close,isOpend } = ModalController(props.isOpend);
+    const { signUp } = SignUpContrller({address : props.address, policy : props.policy});
 
     const modalStyles = {
+      zIndex : '1000',
       position: "fixed",
       top: "50%",
       left: "50%",
@@ -34,13 +40,16 @@ const Modal = (props: { isOpend : boolean, message : string }) => {
   
     return (
       <div style={modalStyles}>
-        <p style={messageStyles}>{props.message}</p>
+        <p style={messageStyles}>서비스를 이용하기 위해 사용약관에 동의해야 합니다.</p>
         <button onClick={()=>{ 
             close()
         }}>Close</button>
+        <button onClick={() => {
+          signUp();
+        }}>Sign In</button>
       </div>
     );
   };
   
-  export default Modal;
+  export default ModalSignUp;
   
