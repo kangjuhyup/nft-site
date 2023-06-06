@@ -41,7 +41,7 @@ const Wallet = () => {
           {!isSigned ? 
                 
                 <div>
-                <ModalSignUp isOpend={true} address={`${address}`} policy={policy!}/>
+                <ModalSignUp address={`${address}`} policy={policy!}/>
 
             </div>
             

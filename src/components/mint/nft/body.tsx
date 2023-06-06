@@ -15,7 +15,7 @@ const MintNFTBody = () => {
       <InputField handle={setName} placeHolder="Name" type="name" />
       <InputField handle={setSymbol} placeHolder="Symbol" type="symbol" />
       <InputField handle={setBaseUrl}placeHolder="Repisotory Base Url" type="baseUrl"/>
-      <Button type="deploy_nft" param={data()} />
+      <Button type="deploy_nft" param={data} />
     </div>
   );
 };

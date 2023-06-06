@@ -1,16 +1,23 @@
 import useAuth from "@/hooks/api";
-import { useEffect } from "react";
+import { authState } from "@/store/auth";
+import { useEffect, useState } from "react";
 import { useSignMessage } from "wagmi";
 
 const SignUpContrller = (props : {
   address : string,
-  policy : string
+  policy : string,
 }) => {
   const { signUp, loading, error } = useAuth();
   const { data, signMessage } = useSignMessage();
+  const {isAuth, setAuth} = authState();
+  
   const sign = async () => {
     signMessage({message : props.policy});
   }
+
+  const closeModal = () => {
+    setAuth(true);
+}
 
   useEffect(() => {
     if(!data) return;
@@ -19,13 +26,14 @@ const SignUpContrller = (props : {
         address : props.address,
         signature : data
       })
-      console.log(signup);
+      closeModal();
     }
     a();
   },[data]);
 
   return {
     signUp : sign,
+    isAuth : isAuth,
   };
 };
 export default SignUpContrller;
