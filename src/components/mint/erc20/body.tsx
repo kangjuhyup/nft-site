@@ -15,7 +15,7 @@ const MintERC20Body = () => {
       <InputField handle={setName} placeHolder="Name" type="name" />
       <InputField handle={setSymbol} placeHolder="Symbol" type="symbol" />
       <InputField handle={setTotalSupply} placeHolder="Total Supply" type="totalSupply"/>
-      <Button type="deploy_erc20" param={data} />
+      <Button type="deploy_erc20" param={data()} />
     </div>
   );
 };

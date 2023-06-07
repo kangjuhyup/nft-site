@@ -1,3 +1,5 @@
+import { useERC20Hooks } from "@/hooks/transaction/erc20";
+import { useNFTHooks } from "@/hooks/transaction/nft";
 
 
 const TransactionType = {
@@ -6,24 +8,24 @@ const TransactionType = {
   } as const
   export type TRANSACTION_TYPE = typeof TransactionType[keyof typeof TransactionType];
 
-const TransactionButtonController = (type : TRANSACTION_TYPE,hook : any) => {
+const TransactionButtonController = (type : TRANSACTION_TYPE) => {
+    let hook:any;
 
-    const sendTransaction = async (param:any) => {
-        if(!hook) throw Error('invaild hook');
-        switch(type) {
-            case TransactionType.DEPLOY_NFT :
-                hook.send(param);
+    switch(type) {
+        case TransactionType.DEPLOY_NFT : 
+            hook = useNFTHooks();
             break;
-            case TransactionType.DEPLOY_ERC20 : 
+        case TransactionType.DEPLOY_ERC20 :
+            hook = useERC20Hooks();
             break;
-        }
     }
+    
 
     return {
-        send : sendTransaction,
-        isLoading : hook?.isLoading,
-        isSuccess : hook?.isSuccess,
-        txData : hook?.data
+        send : hook.send,
+        isLoading : hook.isLaoding,
+        isSuccess : hook.isSuccess,
+        txData : hook.data
     }
 }
 

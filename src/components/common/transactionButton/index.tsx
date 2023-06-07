@@ -1,6 +1,8 @@
 'use client';
 
+import { useERC20Hooks } from '@/hooks/transaction/erc20';
 import { useNFTHooks } from '@/hooks/transaction/nft';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ModalTransaction from '../modal/transaction';
 import TransactionButtonController, { TRANSACTION_TYPE } from './controller';
@@ -25,8 +27,8 @@ function Button(props : {
   type : TRANSACTION_TYPE,
   param : {}
 }) {
-  const useNFT = useNFTHooks();
-  const { send , isLoading, isSuccess, txData } = TransactionButtonController(props.type,useNFT);
+  console.log('props.param : ',props.param)
+  const { send, isLoading, isSuccess, txData } = TransactionButtonController(props.type);
 
   return (
     <div>

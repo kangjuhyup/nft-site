@@ -19,12 +19,13 @@ export const useNFTHooks = () => {
 
 
     const {data,isLoading,isSuccess,write} = useContractWrite({
-        address: '0xC62230B9F4BDB6286f86f5bCeEe15F715167ECE0',
+        address: `0x${process.env.NFT_DEPLOYER}`,
         abi: abi.abi,
         functionName: 'DeployNFT',
     })
 
     const send = (param:NFTParams) => {
+        console.log('send : ' ,param);
         const { name, symbol, baseUrl } = param;
         if(!name) throw Error('invaild name')
         if(!symbol) throw Error('invaild Symbol')

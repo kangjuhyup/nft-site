@@ -14,12 +14,12 @@ export interface useNFTHookResponse {
     send : ( param:ERC20Params )=>void
 }
 
-export const useNFTHooks = () => {
+export const useERC20Hooks = () => {
     const abi = require('/public/abi/erc20_deployer.json').abi;
 
-
+    console.log('erc20_deployer : ', process.env.ERC20_DEPLOYER)
     const {data,isLoading,isSuccess,write} = useContractWrite({
-        address: '0x',
+        address: `0x${process.env.ERC20_DEPLOYER}`,
         abi: abi,
         functionName: 'DeployERC20',
     })

@@ -6,7 +6,7 @@ const MintERC20BodyController = () => {
     const [ totalSupply, setTotalSupply ] = useState<string>();
 
     const getData = () => {
-        return {name,symbol,totalSupply}
+        return {name : name, symbol : symbol, totalSupply :totalSupply}
     }
 
     return {

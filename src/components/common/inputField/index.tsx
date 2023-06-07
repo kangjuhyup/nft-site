@@ -35,7 +35,7 @@ const InputField = (props : InputFieldProps) => {
             <Input 
                 type="text" 
                 placeholder={placeHolder} 
-                onChange={(e) => handle(type,e.target.value)} 
+                onChange={(e) => handle(e.target.value)} 
             />
         </div>
     )

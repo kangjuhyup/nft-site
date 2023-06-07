@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MintNFTBodyController = () => {
     const [ name , setName ] = useState<string>();
     const [ symbol, setSymbol ] = useState<string>();
     const [ baseUrl, setBaseUrl ] = useState<string>();
 
+    useEffect(() => {
+        console.log('name : ' ,name);
+    },[name]);
+
     const getData = () => {
-        return {name,symbol,baseUrl}
+        return {name : name, symbol : symbol, baseUrl : baseUrl}
     }
 
     return {
