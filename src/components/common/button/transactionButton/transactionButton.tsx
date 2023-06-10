@@ -1,13 +1,10 @@
 'use client';
 
-import { useERC20Hooks } from '@/hooks/transaction/erc20';
-import { useNFTHooks } from '@/hooks/transaction/nft';
-import { useState } from 'react';
 import styled from 'styled-components';
-import ModalTransaction from '../modal/transaction';
-import TransactionButtonController, { TRANSACTION_TYPE } from './controller';
+import ModalTransaction from '../../modal/transaction';
+import TransactionButtonController, { TRANSACTION_TYPE } from './transactionButtonController';
 
-const TransactionButton = styled.button`
+const Button = styled.button`
   background-color: #3498db;
   color: #fff;
   padding: 10px 20px;
@@ -23,7 +20,7 @@ const TransactionButton = styled.button`
 
 
 
-function Button(props : {
+function TransactionButton(props : {
   type : TRANSACTION_TYPE,
   param : {}
 }) {
@@ -34,9 +31,9 @@ function Button(props : {
     <div>
     {
       !isLoading ?
-       <TransactionButton onClick={() => send(props.param)}>
+       <Button onClick={() => send(props.param)}>
         Send Transaction
-      </TransactionButton>
+      </Button>
       :
         <p>
           Transaction Pending
@@ -47,4 +44,4 @@ function Button(props : {
   );
 }
 
-export default Button;
+export default TransactionButton;
