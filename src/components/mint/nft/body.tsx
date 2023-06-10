@@ -1,7 +1,7 @@
 'use client'
 
+import TransactionButton from "@/components/common/button/transactionButton/transactionButton";
 import InputField from "@/components/common/inputField";
-import Button from "@/components/common/transactionButton";
 import MintNFTBodyController from "./controller";
 
 const MintNFTBody = () => {
@@ -15,7 +15,7 @@ const MintNFTBody = () => {
       <InputField handle={setName} placeHolder="Name" type="name" />
       <InputField handle={setSymbol} placeHolder="Symbol" type="symbol" />
       <InputField handle={setBaseUrl}placeHolder="Repisotory Base Url" type="baseUrl"/>
-      <Button type="deploy_nft" param={data()} />
+      <TransactionButton type="deploy_nft" param={data()} />
     </div>
   );
 };

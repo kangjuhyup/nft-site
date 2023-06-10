@@ -1,7 +1,5 @@
 "use client";
 
-import useAuth from "@/hooks/api";
-import ModalController from "../controller";
 import SignUpContrller from "./controller";
 
 const ModalSignUp = (props: {

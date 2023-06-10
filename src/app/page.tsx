@@ -8,14 +8,14 @@ const Home = () => {
         <h1 className={styles.heading}>
           Issue your own NFT with a few simple inputs and a click.
         </h1>
-        <Link href={{ pathname: "/mint" }} className={styles.link}>
+        <Link href={{ pathname: "/mint/nft" }} className={styles.link}>
           Deploy NFT
         </Link>
       </div>
 
       <div className={`${styles.div2} ${styles.div}`}>
         <h1 className={styles.heading}>Issue your own ERC20 token.</h1>
-        <Link href={{ pathname: "/mint" }} className={styles.link}>
+        <Link href={{ pathname: "/mint/erc20" }} className={styles.link}>
           Deploy ERC20
         </Link>
       </div>
