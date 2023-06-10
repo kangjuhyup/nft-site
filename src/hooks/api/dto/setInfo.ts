@@ -1,4 +1,4 @@
-export interface setInfoDto {
+export interface SetInfoDto {
     address: string;
     nickName : string;
     file? : any,

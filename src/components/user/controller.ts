@@ -5,7 +5,7 @@ const UserBodyController = () => {
   const [nickName, setNickName] = useState<string>();
 
   const handleImage = (value: any) => {
-    console.log(value);
+    if(!value) return;
     var render = new FileReader();
     render.onload = (e) => {
       console.log(e.target?.result);

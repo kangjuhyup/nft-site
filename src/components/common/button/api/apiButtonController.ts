@@ -12,7 +12,7 @@ const ApiButtonController = (type: API_TYPE) => {
   switch (type) {
     case ApiType.SET_USER_INFO:
       return {
-        setInfo: signUp,
+        setInfo: setInfo,
         loading: loading,
         error: error,
       };

@@ -1,7 +1,7 @@
 'use client'
 
+import TransactionButton from "@/components/common/button/transactionButton/transactionButton";
 import InputField from "@/components/common/inputField";
-import Button from "@/components/common/transactionButton";
 import MintERC20BodyController from "./controller";
 
 const MintERC20Body = () => {
@@ -15,7 +15,7 @@ const MintERC20Body = () => {
       <InputField handle={setName} placeHolder="Name" type="name" />
       <InputField handle={setSymbol} placeHolder="Symbol" type="symbol" />
       <InputField handle={setTotalSupply} placeHolder="Total Supply" type="totalSupply"/>
-      <Button type="deploy_erc20" param={data()} />
+      <TransactionButton type="deploy_erc20" param={data()} />
     </div>
   );
 };

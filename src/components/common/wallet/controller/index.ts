@@ -7,15 +7,17 @@ import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 const WalletController = () => {
     const { address, isConnected } = useAccount()
-    const { getPolicy, loading, error } = useAuth();
+    const { getPolicy, signIn, loading, error } = useAuth();
     const [policy,setPolicy] = useState<string>();
     const { isAuth, setAuth } = authState();
     const check = async () => {
-        const policy = await getPolicy({address : `${address}` });
-        console.log(policy);
-        if(policy.success) {
+        const isSigned = await signIn({address : `${address}` })
+        if (!isSigned.success) {
             setAuth(false);
-            setPolicy(policy.policy)
+            const policy = await getPolicy({address : `${address}` });
+            if(policy.success) {
+                setPolicy(policy.policy)
+            }
         }
         else setAuth(true);
       }
