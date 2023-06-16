@@ -1,8 +1,22 @@
-import { useState } from "react";
+import useAuth from "@/hooks/api";
+import { useEffect, useState } from "react";
 
-const UserBodyController = () => {
+const UserBodyController = (props : {
+  address : string
+}) => {
   const [file, setFile] = useState<any>();
   const [nickName, setNickName] = useState<string>();
+
+  const {getInfo} = useAuth();
+
+  useEffect(() => {
+    const firstRender = async () => {
+      console.log('props.address chainged');
+      console.log(await getInfo({address : props.address }));
+
+    }
+    firstRender();
+  },[props.address]);
 
   const handleImage = (value: any) => {
     if(!value) return;

@@ -5,6 +5,7 @@ import { SignUpDto } from "./dto/signUp";
 
 import { getCookie } from "cookies-next";
 import { SignInDto } from "./dto/signIn";
+import { GetInfoDto } from "./dto/getInfo";
 
 const useAuth = () => {
   const [loading, setLoading] = useState(false);
@@ -118,6 +119,33 @@ const useAuth = () => {
     }
   };
 
+  const getInfo = async (dto:GetInfoDto) => {
+    setLoading(true);
+    try {
+      const { address } = dto;
+      const url = "http://localhost:8000/auth/getInfo";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getJwtToken()}`,
+        },
+        body: JSON.stringify({ address }),
+      });
+      if (response.ok) {
+        const jsonData = await response.json();
+        return jsonData;
+      } else {
+        throw Error("failed call setInfo API");
+      }
+    } catch (error) {
+      setError(error);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return {
     loading,
     error,
@@ -125,6 +153,7 @@ const useAuth = () => {
     signUp,
     signIn,
     setInfo,
+    getInfo,
   };
 };
 

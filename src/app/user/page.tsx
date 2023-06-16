@@ -6,6 +6,7 @@ import UserBody from "@/components/user/body";
 
 export default function User() {
   const {
+    address,
     isConnected,
   } = WalletController();
 
@@ -15,8 +16,8 @@ export default function User() {
         <Wallet></Wallet>
         <div>
           {
-            isConnected ?
-              <UserBody/>
+            isConnected && address ?
+              <UserBody address={address.toString()}/>
               :
               <div>
                 <p>You must connect your wallet to use it.</p>

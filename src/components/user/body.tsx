@@ -5,9 +5,10 @@ import ApiButton from "../common/button/api/apiButton";
 import InputFile from "../common/inputField/inputFile";
 import UserBodyController from "./controller";
 
-const UserBody = () => {
-
-  const { data, file, setNick,onChangeEvent } = UserBodyController();
+const UserBody = (props : {
+  address : string
+}) => {
+  const { data, file, setNick,onChangeEvent } = UserBodyController(props);
 
   return (
     <div
